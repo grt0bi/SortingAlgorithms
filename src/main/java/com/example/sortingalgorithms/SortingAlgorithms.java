@@ -37,6 +37,8 @@ public class SortingAlgorithms {
             }
         }
     }
+
+
     public static void selectionSort(long[] randomNumbers){
         for(int i = 0; i < randomNumbers.length-1; i++){
             int minIndex = i;

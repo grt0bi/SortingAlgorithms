@@ -53,6 +53,25 @@ public class Controller {
 
     @FXML
     void actBenchmark(ActionEvent event) {
+        if (randomNumbers == null) {
+            lblErgebnis.setText("Bitte zuerst Zahlen generieren.");
+            return;
+        }
+
+        if (sorted) {
+            lblErgebnis.setText("Die Zahlen sind bereits sortiert.");
+            return;
+        }
+
+        int tries = Integer.parseInt(txtTries.getText());
+        long[] times = new long[tries];
+        for (int i = 0; i < tries; i++) {
+            times[i] = zeitmessung();
+        }
+
+        Arrays.sort(times);
+
+        lblErgebnis.setText("SorterDauer: " + times[tries / 2] + "ms für " + randomNumbers.length + " Elemente");
 
     }
 
